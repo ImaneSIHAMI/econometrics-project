@@ -1,4 +1,4 @@
-# Economics Project 2027
+# Econometrics Project 2027
 * Project led by Imane SIHAMI, Francesco LAURIOLA, Jahouer ESSID and Théophile BERTHELOT*
 
 ## Download the data
@@ -63,4 +63,29 @@ French Ministry of Ecological Transition — *Prix des carburants en France*:
 
 https://www.prix-carburants.gouv.fr/rubrique/opendata/
 
-The original files are kept unchanged in `data/raw/`. They are later parsed with 'src/parse_data.py' and transformed into analysis-ready tables by the data-processing scripts in `src/`.
+The original files are kept unchanged in `data/raw/`. They are later parsed with `src/parse_data.py` and transformed into analysis-ready tables by the data-processing scripts in `src/`.
+
+## Checking data
+
+After downloading the archives, run the parser from the project root:
+
+```bash
+python src/parse_data.py
+```
+
+This creates the yearly station and price tables in `data/interim/`.
+
+Open [`notebook/01_data_check.ipynb`](notebook/01_data_check.ipynb) in VS Code or Jupyter, select the project's `.venv` Python kernel, and run all cells in order. The notebook currently checks `stations_2025.parquet` and `prices_2025.parquet`.
+
+If prompted to install a notebook kernel, run `python -m pip install ipykernel` in the activated environment.
+
+The checks cover:
+
+- Dataset size, missing values and fuel types.
+- Unique, nonmissing station identifiers.
+- Timestamps outside 2025, with missing dates counted separately.
+- Duplicate `(station_id, fuel, timestamp)` keys, distinguishing identical prices from conflicting reports.
+- Minimum and maximum prices by fuel, with the station and timestamp of each extreme.
+- The number of stations with at least one positive, finite Gazole price in 2025, forming the candidate population for the main panel.
+
+The notebook reports issues without changing the parquet files. Continuous coverage must still be checked before constructing the panel.
