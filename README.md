@@ -63,4 +63,4 @@ French Ministry of Ecological Transition — *Prix des carburants en France*:
 
 https://www.prix-carburants.gouv.fr/rubrique/opendata/
 
-The original files are kept unchanged in `data/raw/`. They are later parsed and transformed into analysis-ready tables by the data-processing scripts in `src/`.
+The original files are kept unchanged in `data/raw/`. They are later parsed with 'src/parse_data.py' and transformed into analysis-ready tables by the data-processing scripts in `src/`.
