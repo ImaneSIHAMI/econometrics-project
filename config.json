@@ -1,0 +1,12 @@
+{
+  "analysis_start_year": 2021,
+  "analysis_end_year": 2025,
+  "fuel": "Gazole",
+  "max_price_age_days": 28,
+  "min_weekly_observations_per_month": 2,
+  "min_price_eur": 0.5,
+  "max_price_eur": 4.0,
+  "min_regression_observations": 40,
+  "regression_sample_cap": 250000,
+  "random_seed": 42
+}
